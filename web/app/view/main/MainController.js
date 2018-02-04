@@ -1,0 +1,107 @@
+/**
+ * This class is the controller for the main view for the application. It is specified as
+ * the "controller" of the Main view class.
+ *
+ * TODO - Replace this content of this view to suite the needs of your application.
+ */
+Ext.define('KeanBooks.view.main.MainController', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.main',
+    id : 'MainController',
+    requires : ['KeanBooks.classes.Events','KeanBooks.classes.Constants'],            
+    
+    pendingNavigation : undefined,
+                
+    listen: {
+        controller: {
+            '#LoginController': {
+            	USER_STATUS_CHANGE : 	'checkPendingNavigation'
+            },
+			'*': {
+				REDIRECT_TO :		 	'redirectTo'
+			}
+        }
+    },
+    
+    control : {
+            '[xtype=app-main]' : {
+                beforeactiveitemchange : 	'authorize'
+            }	
+    },
+    
+	checkPendingNavigation: function () {
+
+		if (this.getViewModel().get('user').isLoggedIn()){
+			if (this.pendingNavigation){
+				this.getView().setActiveItem(this.pendingNavigation);
+				this.pendingNavigation = undefined;
+			}
+    	};
+		
+	},
+    
+    redirectTo: function (panelNumber){
+
+    	this.getView().setActiveItem(panelNumber);
+    	
+    },
+	
+    authorize: function (tabPanel, value){
+    	
+    	var panelNumber = tabPanel.getItems().indexOf(value);
+    	
+    	if (panelNumber === KeanBooks.classes.Constants.TAB_PANELS.BUY ||
+    		panelNumber === KeanBooks.classes.Constants.TAB_PANELS.SELL||
+       		panelNumber === KeanBooks.classes.Constants.TAB_PANELS.LIST){
+    		return this.allowTo(panelNumber);
+    	}else{ 
+    		return true;
+    	}
+    	
+    },
+
+    allowTo: function (panelNumber){
+		
+        if (this.getViewModel().get('user').isLoggedIn()){
+        	this.pendingNavigation = undefined;
+        	return true;
+        }else{
+        	this.getView().setActiveItem(KeanBooks.classes.Constants.TAB_PANELS.LOGIN);
+        	this.pendingNavigation = panelNumber;
+        	return false;
+        }
+	
+	}
+
+});
+    
+	/*
+	,
+	init: function (){
+		
+		Ext.getWin().on('beforeunload',function(event){ 
+			
+			//debugger;
+			event.stopPropagation();
+	    	Ext.Msg.confirm(KeanBooks.classes.Constants.LIST_A_BOOK, 
+					KeanBooks.classes.Constants.ARE_YOU_SURE, 
+					'onConfirmExit',this);
+	    	return false;
+	    	
+		});
+		
+		//this.getView().setActiveItem(0);//Greetings page normally inaccessible
+		
+	},
+	
+	
+	onConfirmExit: function () {
+		
+		return false;
+	
+		
+	},*/
+
+
+
+
