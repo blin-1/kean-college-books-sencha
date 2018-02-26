@@ -9,22 +9,28 @@ Ext.define('KeanBooks.view.book.BookController', {
     
     control : {
 		'[xtype=book-list]' : {
-			itemdoubletap : 'onSelect'
-		}    	
+			
+			itemtap : 		'onitemtap',
+			itemdoubletap : 'onitemdoubletap'
+
+		}
+		
     },	
     
-    onSelect : function(grid) {
+    onitemtap : function(grid) {
 
 		var book = grid.getSelection();
-		
-		// load bids and asks:
-		this.loadBetsByItemId(book, 'offers');
-		this.loadBetsByItemId(book, 'bids');
 		this.getViewModel().set('book', book);
+		this.setItemId(book, 'offers');
+		this.setItemId(book, 'bids');
+
+	},
+	
+	onitemdoubletap : function (grid) {
 		
 		this.fireEvent(KeanBooks.classes.Events.REDIRECT_TO,KeanBooks.classes.Constants.TAB_PANELS.BUY);
-
-	},	    
+		
+	},
     	
     onList: function (button) {
     	
@@ -45,7 +51,7 @@ Ext.define('KeanBooks.view.book.BookController', {
           				//TODO gen err handler
           	            success: function(record, operation) {
           	            	Ext.Msg.alert('Thank You', 'The book is listed', Ext.emptyFn);
-          	            	Ext.data.StoreManager.lookup('books').add(record);
+          	            	//Ext.data.StoreManager.lookup('books').add(record);
           	            },
           	            failure: function(record, operation) {
           	            	Ext.Msg.alert('Oops! Something went wrong',  operation.error.response.statusText, Ext.emptyFn);
@@ -55,11 +61,10 @@ Ext.define('KeanBooks.view.book.BookController', {
         }	
     },
 	
-    loadBetsByItemId : function (book,storeName){
+    setItemId : function (book,storeName){
 		
     	var store = Ext.getStore(storeName);
        	store.getProxy().setExtraParams({id : book.get('id')});
-       	store.load();
        	
 	}
 });

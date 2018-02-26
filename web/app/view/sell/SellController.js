@@ -36,10 +36,16 @@ Ext.define('KeanBooks.view.sell.SellController', {
           			{
           				//TODO gen err handler
           	            success: function(record, operation) {
-          	            	Ext.Msg.alert('Thank You', 'Your offer of ' + bet.get('price') + ' is accepted', Ext.emptyFn);
-          	            	record.set('rowId',record.get('0'));
-          	            	record.commit();
-          	            	Ext.data.StoreManager.lookup('offers').add(record);
+          	            	if (operation._response.responseText.substring(0,2) === "{}"){
+          	            		Ext.Msg.alert('Thank You', 'You have a sale at ' + record.get('price'), Ext.emptyFn);
+              	            	// bids and offers stores have book id added to the proxy at this point 
+              	            	Ext.data.StoreManager.lookup('bids').load(); // best deal would be updated in view
+          	            	}else{
+              	            	Ext.Msg.alert('Thank You', 'The book is listed at' + record.get('price'), Ext.emptyFn);
+              	            	record.set('rowId',record.get('0'));
+              	            	record.commit();
+              	            	Ext.data.StoreManager.lookup('offers').add(record);
+          	            	}
           	            },
           	            failure: function(record, operation) {
           	            	Ext.Msg.alert('Oops! Something went wrong',  operation.error.response.statusText, Ext.emptyFn);

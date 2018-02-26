@@ -17,10 +17,8 @@ Ext.define('KeanBooks.classes.Constants', {
     		LOGIN : 4,
     		LIST : 5
     		
-    	},
-        //APP_SERVER_URL : 'http://localhost:8888/'
-        APP_SERVER_URL : 'https://kean-college-router.appspot.com/'
-    
+    	}
+	
     }	
 		
 });

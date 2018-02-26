@@ -3,15 +3,15 @@ Ext.define('KeanBooks.model.Offer', {
     
     proxy: {
         type: 'rest',
-        url : KeanBooks.classes.Constants.APP_SERVER_URL + 'offers',
+        url : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'offers',
         reader : {
             rootProperty : 'rows'
         },       
         api: {
-		    create  : KeanBooks.classes.Constants.APP_SERVER_URL + 'offers/create',
-		    read    : KeanBooks.classes.Constants.APP_SERVER_URL + 'offers/byId',
-		    update  : KeanBooks.classes.Constants.APP_SERVER_URL + 'offers/update',
-		    destroy : KeanBooks.classes.Constants.APP_SERVER_URL + 'offers/destroy'
+		    create  : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'offers/create',
+		    read    : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'offers/byId',
+		    update  : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'offers/update',
+		    destroy : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'offers/destroy'
 		}
 
     }

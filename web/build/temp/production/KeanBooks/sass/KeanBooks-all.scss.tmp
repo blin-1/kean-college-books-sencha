@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'KeanBooks' );
-$image-search-path: 'C:/Users/Yuri/git/kean-college-book-sencha/kean-college-books-sencha/web/build/production/KeanBooks/resources';
+$image-search-path: 'C:/Users/Yuri/git/kean-college-book-sencha/web/build/production/KeanBooks/resources';
 $theme-name:  dynamic( 'theme-material' );
 $include-ext-abstractcomponent: dynamic(false);;
 $include-ext-abstractmanager: dynamic(false);;

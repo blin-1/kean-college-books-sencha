@@ -11,11 +11,11 @@ Ext.define('KeanBooks.view.book.LoginController', {
     
     auth2 : null,
     
-    control: {
+/*    control: {
         'emailfield[reference=emailField]': {
         	validitychange: 'onEmailChange'
         }
-    },
+    },*/
     
     
     init : function () {
@@ -85,34 +85,7 @@ Ext.define('KeanBooks.view.book.LoginController', {
 	    
     },
     
-    onEmailLogin: function (button) {
-    	
-    	// not implementing that yet
-    	return;
-    	var email = this.lookup('emailField');
-    	var model = this.getViewModel();
-    	//errors = model.getValidation();
-    	//console.log('errors',errors)
-    	//errors.isValid();
-    	//console.log('valid',erors.isValid())
-    	email.disable();
-	    email.setRequired(false);
-	    //console.log('validate: ', email..validate());
-        //var form=email.up('login-form');
-        ////formAllowBlank(false);
-        //if (errors.isValid()){
-    	//    model.set('email',email.getValue());
-        //}
-	    model.set('email',email.getValue())
-	   	this.fireEvent(KeanBooks.classes.Events.USER_LOGGED_IN_VIA_EMAIL,model);
-    },
-    
-    onEmailChange: function (field) {
 
-    	//debugger;
-    	//this.getViewModel().set('email',field.getValue());
-	    
-    },
     
     setModelState: function (signedIn) {
     	
@@ -147,5 +120,34 @@ Ext.define('KeanBooks.view.book.LoginController', {
 	    };
 	    this.fireEvent(KeanBooks.classes.Events.USER_STATUS_CHANGE);
     }
+    
+    /*    onEmailLogin: function (button) {
+	
+	// not implementing that yet
+	return;
+	var email = this.lookup('emailField');
+	var model = this.getViewModel();
+	//errors = model.getValidation();
+	//console.log('errors',errors)
+	//errors.isValid();
+	//console.log('valid',erors.isValid())
+	email.disable();
+    email.setRequired(false);
+    //console.log('validate: ', email..validate());
+    //var form=email.up('login-form');
+    ////formAllowBlank(false);
+    //if (errors.isValid()){
+	//    model.set('email',email.getValue());
+    //}
+    model.set('email',email.getValue())
+   	this.fireEvent(KeanBooks.classes.Events.USER_LOGGED_IN_VIA_EMAIL,model);
+},
+
+onEmailChange: function (field) {
+
+	//debugger;
+	//this.getViewModel().set('email',field.getValue());
+    
+},*/
     
 });

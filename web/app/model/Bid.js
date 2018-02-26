@@ -7,10 +7,10 @@ Ext.define('KeanBooks.model.Bid', {
             rootProperty : 'rows'
         },
 		api: {
-		    create  : KeanBooks.classes.Constants.APP_SERVER_URL + 'bids/create',
-		    read    : KeanBooks.classes.Constants.APP_SERVER_URL + 'bids/byId',
-		    update  : KeanBooks.classes.Constants.APP_SERVER_URL + 'bids/update',
-		    destroy : KeanBooks.classes.Constants.APP_SERVER_URL + 'bids/destroy'
+		    create  : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'bids/create',
+		    read    : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'bids/byId',
+		    update  : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'bids/update',
+		    destroy : KeanBooks.classes.Credentials.APP_SERVER_BASE_URL + 'bids/destroy'
 		}
     }
 });

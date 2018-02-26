@@ -25,7 +25,8 @@ Ext.define('KeanBooks.view.main.MainController', {
     
     control : {
             '[xtype=app-main]' : {
-                beforeactiveitemchange : 	'authorize'
+                beforeactiveitemchange : 	'authorize',
+                      activeitemchange : 	'loadNecessaryStores'
             }	
     },
     
@@ -71,37 +72,24 @@ Ext.define('KeanBooks.view.main.MainController', {
         	return false;
         }
 	
+	},
+	
+	loadNecessaryStores: function (tabPanel,value){
+		
+    	var panelNumber = tabPanel.getItems().indexOf(value);
+ 
+    	if (panelNumber === KeanBooks.classes.Constants.TAB_PANELS.BUY){
+    		return Ext.data.StoreManager.lookup('offers').load();
+    	};
+    	
+    	if (panelNumber === KeanBooks.classes.Constants.TAB_PANELS.SELL){
+    		return Ext.data.StoreManager.lookup('bids').load();
+    	};
+    	
+    	if (panelNumber === KeanBooks.classes.Constants.TAB_PANELS.BROWSE_BOOKS){
+    	   	console.log ('loadbooks');
+    		return Ext.data.StoreManager.lookup('books').load();
+    	};
 	}
 
 });
-    
-	/*
-	,
-	init: function (){
-		
-		Ext.getWin().on('beforeunload',function(event){ 
-			
-			//debugger;
-			event.stopPropagation();
-	    	Ext.Msg.confirm(KeanBooks.classes.Constants.LIST_A_BOOK, 
-					KeanBooks.classes.Constants.ARE_YOU_SURE, 
-					'onConfirmExit',this);
-	    	return false;
-	    	
-		});
-		
-		//this.getView().setActiveItem(0);//Greetings page normally inaccessible
-		
-	},
-	
-	
-	onConfirmExit: function () {
-		
-		return false;
-	
-		
-	},*/
-
-
-
-

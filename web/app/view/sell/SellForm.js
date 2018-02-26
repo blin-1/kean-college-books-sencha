@@ -48,19 +48,21 @@ Ext.define('KeanBooks.view.sell.SellForm', {
 					xtype : 'numberfield',
 					name  : 'bestPrice',
 					placeHolder: 'N/A', 
-					label : 'Best Offer',
+					label : 'Highest bid',
 					readOnly : true,
 					bind :  '{bid.price}'
 	          },
 	          {
 					xtype : 'numberfield',
 					name  : 'price',
-					label : 'Your price'
+					label : 'Name your price',
+					placeHolder: ''
 	          },
 	          {
 					xtype : 'textfield',
 					name  : 'notes',
-					label : 'Notes'
+					label : 'Notes',
+					placeHolder: 'Notes to Buyer'
 	          },
 			  {
 					xtype : 'toolbar',
