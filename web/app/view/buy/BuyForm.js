@@ -1,5 +1,5 @@
 /**
- * This view is sell form.
+ * This view is buy form.
  */
 Ext.define('KeanBooks.view.buy.BuyForm', {
     extend: 'Ext.form.Panel',
