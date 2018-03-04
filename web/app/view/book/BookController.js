@@ -64,7 +64,7 @@ Ext.define('KeanBooks.view.book.BookController', {
     setItemId : function (book,storeName){
 		
     	var store = Ext.getStore(storeName);
-       	store.getProxy().setExtraParams({id : book.get('id')});
+       	store.getProxy().setExtraParams({id : book.get('rowId')});
        	
 	}
 });

@@ -15,6 +15,21 @@ Ext.define('KeanBooks.view.sell.SellForm', {
     closeable : false,
 	items : [  
 	          {
+					xtype : 'numberfield',
+					name  : 'id',
+					label : 'Book Id',
+					readOnly : true,
+					hidden : true,
+					bind :  '{book.rowId}'
+	          }, 
+	          {
+					xtype : 'numberfield',
+					//name  : 'id',
+					label : 'ISBN',
+					readOnly : true,
+					bind :  '{book.id}'
+	          },
+	          {
 					xtype : 'textfield',
 					name  : 'title',
 					label : 'Title',
@@ -36,13 +51,6 @@ Ext.define('KeanBooks.view.sell.SellForm', {
 					label : 'Edition',
 					readOnly : true,
 					bind :  '{book.edition}'
-	          },
-	          {
-					xtype : 'numberfield',
-					name  : 'id',
-					label : 'ISBN',
-					readOnly : true,
-					bind :  '{book.id}'
 	          },
 	          {
 					xtype : 'numberfield',
