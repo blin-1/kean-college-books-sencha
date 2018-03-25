@@ -11,13 +11,14 @@ Ext.define('KeanBooks.view.main.Main', {
     requires: [
 //        'Ext.MessageBox',
 
+        'KeanBooks.view.welcome.WelcomePanel',
+        
         'KeanBooks.view.main.MainController',
         'KeanBooks.view.main.MainModel',
         
         'KeanBooks.view.login.LoginForm',
         
         'KeanBooks.view.book.BookController',
-        'KeanBooks.view.book.BookForm',
         'KeanBooks.view.book.BookList',
         
         'KeanBooks.view.buy.BuyController',
@@ -50,8 +51,8 @@ Ext.define('KeanBooks.view.main.Main', {
     items: [
         	{
             	hidden : true,
-	            title: 'None',
-                bind: {html: '{greetings}'}
+            	title: 'None',
+	            items: [{xtype: 'welcome-panel'}]
         	},
             {
 	            title: 'Browse',
@@ -73,11 +74,6 @@ Ext.define('KeanBooks.view.main.Main', {
         		title: 'Sign In',
 	            iconCls: 'x-fa fa-user',	 
 	            items: [{xtype: 'login-form'}]
-	        },
-        	{
-	        	title: KeanBooks.classes.Constants.LIST_A_BOOK,
-	            iconCls: 'x-fa fa-users',
-	            items: [{xtype: 'book-form',title: KeanBooks.classes.Constants.LIST_A_BOOK}]
-        	}
+	        }
     ]
 });

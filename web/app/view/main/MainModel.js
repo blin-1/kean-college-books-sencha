@@ -6,8 +6,7 @@ Ext.define('KeanBooks.view.main.MainModel', {
     requires : ['KeanBooks.classes.Constants','KeanBooks.model.User'],
     alias: 'viewmodel.main',
     data: {
-        name: 'KeanBooks',
-        greetings: 'Welcome to Kean University used books',        
+        name: 'KeanBooks',    
         book: 	undefined,
         ask:  	undefined,
         bid:  	undefined,

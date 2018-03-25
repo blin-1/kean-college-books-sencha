@@ -6,7 +6,8 @@ Ext.define('KeanBooks.model.Bet', {
             { name: 'price', type: 'number' },
             { name: 'date',	 type: 'date' },
       		{ name: 'email', type: 'string' },
-      		{ name: 'phone', type: 'number' }
+      		{ name: 'phone', type: 'number' },
+      		{ name: 'notes', type: 'string' }
       		
  	]
 

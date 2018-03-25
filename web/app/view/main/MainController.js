@@ -52,8 +52,7 @@ Ext.define('KeanBooks.view.main.MainController', {
     	var panelNumber = tabPanel.getItems().indexOf(value);
     	
     	if (panelNumber === KeanBooks.classes.Constants.TAB_PANELS.BUY ||
-    		panelNumber === KeanBooks.classes.Constants.TAB_PANELS.SELL||
-       		panelNumber === KeanBooks.classes.Constants.TAB_PANELS.LIST){
+    		panelNumber === KeanBooks.classes.Constants.TAB_PANELS.SELL){
     		return this.allowTo(panelNumber);
     	}else{ 
     		return true;
@@ -87,7 +86,6 @@ Ext.define('KeanBooks.view.main.MainController', {
     	};
     	
     	if (panelNumber === KeanBooks.classes.Constants.TAB_PANELS.BROWSE_BOOKS){
-    	   	console.log ('loadbooks');
     		return Ext.data.StoreManager.lookup('books').load();
     	};
 	}

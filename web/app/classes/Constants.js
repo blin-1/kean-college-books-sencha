@@ -14,9 +14,7 @@ Ext.define('KeanBooks.classes.Constants', {
     		BROWSE_BOOKS : 1,
     		BUY : 2,
     		SELL : 3,
-    		LOGIN : 4,
-    		LIST : 5
-    		
+    		LOGIN : 4
     	}
 	
     }	

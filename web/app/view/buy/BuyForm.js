@@ -21,7 +21,7 @@ Ext.define('KeanBooks.view.buy.BuyForm', {
 					readOnly : true,
 					hidden : true,
 					bind :  '{book.rowId}'
-	          }, 
+	          },
 	          {
 					xtype : 'numberfield',
 					//name  : 'id',
@@ -54,23 +54,34 @@ Ext.define('KeanBooks.view.buy.BuyForm', {
 	          },
 	          {
 					xtype : 'numberfield',
-					name  : 'bestPrice',
+					name  : 'price',
 					placeHolder: 'N/A', 
-					label : 'Lowest asking price',
+					label : 'Asking Price',
 					readOnly : true,
 					bind :  '{ask.price}'
 	          },
 	          {
+					xtype : 'textfield',
+					name  : 'sellerNotes',
+					placeHolder: 'Notes from Seller',
+					label : 'Seller Notes',
+					readOnly : true,
+					bind :  '{ask.notes}'
+	          },
+/*	          {
 					xtype : 'numberfield',
 					name  : 'price',
-					placeHolder: '', 
-					label : 'Name your price'
-	          },
+					placeHolder: 'N/A', 
+					label : 'Price',
+					readOnly : true,
+					bind :  '{bid.price}'
+	          },*/
 	          {
 					xtype : 'textfield',
 					name  : 'notes',
+					placeHolder: 'Notes to Seller [optional]',
 					label : 'Notes',
-					placeHolder: 'Notes to Seller'
+					bind :  '{bid.notes}'
 	          },
 	          
 			  {
@@ -81,7 +92,7 @@ Ext.define('KeanBooks.view.buy.BuyForm', {
 					    {
 							xtype : 'button',
 							reference : 'betButton',
-							text : 'Offer to buy it',
+							text : 'Buy it',
 							//iconCls: 'x-fa fa-check',
 							handler : 'onBet'
 						} 
